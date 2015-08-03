@@ -22,15 +22,15 @@
 
   <br-select-box>
 
-    <ul class="list">
-      <template is="dom-repeat" items="{{options}}">
-        <li>
-          <span>{{item.value}}</span>
-        </li>
-      </template>
-    </ul>
+  <ul class="list">
+    <template is="dom-repeat" items="{{options}}">
+      <li>
+        <span>{{item.value}}</span>
+      </li>
+    </template>
+  </ul>
 
-  </br-select-box>
+</br-select-box>
 
 </template>
 
@@ -38,14 +38,28 @@
   Polymer({
     is: 'br-dropdown-list',
 
-    label: {
-      type: String
+    properties: {
+
+      label: {
+        type: String
+      },
+
+      options: {
+        type: Array,
+        value: []
+      },
+
+      icon: {
+        type: String,
+        default: false
+      }
     },
 
-    icon: {
-      type: String,
-      default: false
-    }
+    _toggleSelect: function(){
+      Polymer.dom(this.root).querySelector('br-select-box').classList.toggle('open');
+    },
+
+
   });
 </script>
 
