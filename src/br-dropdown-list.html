@@ -3,29 +3,24 @@
 <link rel="import" type="html" href="../../br-icons/src/br-icons.html">
 
 <dom-module id="br-dropdown-list">
-<link rel="import" type="css" href="../dist/css/br-dropdown-list.css">
+<!-- <link rel="import" type="css" href="../dist/css/br-dropdown-list.css"> -->
 
 <template>
 
-  <template is="dom-if" if="{{label}}">
-    <div class="custom_select">
-      <button on-click='_toggleSelect'>{{label}}</button>
-    </div>
-  </template>
+  <template is="dom-if" if="{{label}}">{{label}}</template>
 
   <template is="dom-if" if="{{icon}}">
-    <button on-click='_toggleSelect'>
-      <br-icons icon="{{icon}}"></br-icons>
-      <i class="icon-caret"></i>
-    </button>
+    <br-icons icon="{{icon}}"></br-icons>
   </template>
 
-  <br-select-box>
+  <i class="icon-caret"></i>
+
+  <br-select-box class$="{{position}}">
 
     <ul class="list">
       <template is="dom-repeat" items="{{options}}">
         <li>
-          <span>{{item.value}}</span>
+          <a href="{{item.link}}">{{item.label}}</a>
         </li>
       </template>
     </ul>
@@ -38,13 +33,29 @@
   Polymer({
     is: 'br-dropdown-list',
 
-    label: {
-      type: String
+    properties: {
+      options: {
+        type: Array,
+        value: []
+      },
+      label: String,
+      icon: String,
+      position: String
     },
 
-    icon: {
-      type: String,
-      default: false
+    listeners: {
+      'click': '_toggleSelect'
+    },
+
+    ready: function() {
+      var _this = this;
+      _this.addEventListener('click', function(event) {
+        event.stopPropagation();
+      }, false);
+    },
+
+    _toggleSelect: function(){
+      Polymer.dom(this.root).querySelector('br-select-box').classList.toggle('open');
     }
   });
 </script>
