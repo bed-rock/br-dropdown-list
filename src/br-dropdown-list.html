@@ -35,7 +35,6 @@
     is: 'br-dropdown-list',
 
     properties: {
-
       options: {
         type: Array,
         value: []
@@ -49,14 +48,8 @@
       'click': '_toggleSelect'
     },
 
-    ready: function() {
-      var _this = this;
-      _this.addEventListener('click', function(event) {
-        event.stopPropagation();
-      }, false);
-    },
-
-    _toggleSelect: function(){
+    _toggleSelect: function(event) {
+      event.stopPropagation();
       Polymer.dom(this.root).querySelector('br-select-box').classList.toggle('open');
     }
 
