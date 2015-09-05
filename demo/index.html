@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../../bedrock/dist/css/style.css">
 	<link rel="stylesheet" href="../../br-buttons/dist/css/br-button.css">
 
+  <link rel="import" type="html" href="../../polymer/polymer.html">
 	<script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
 	<link rel="import" href="../src/br-dropdown-list.html">
 
@@ -22,9 +23,9 @@
 Usage:
 Tag: <br-dropdown-list></br-dropdown-list>
 Attributes:
-position="right" // Align br-select-box in right
-icon="br-icons:user"
-label="Label example"
+  position: type: String ("right", "left")
+  icon: "br-icons: iconName"
+  label: type: String
 -->
 
 <br-dropdown-list icon="br-icons:user" class="btn"
