@@ -1,6 +1,6 @@
 {
   "name": "br-dropdown-list",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage": "https://github.com/bed-rock/br-dropdown-list",
   "authors": [
     "cbfranca <cleidsonbf@gmail.com>"
@@ -21,8 +21,8 @@
     "tests"
   ],
   "dependencies": {
-    "bedrock-base": "~1.0.0",
-    "br-select-box": "~1.0.0",
-    "br-icons": "~1.0.0"
+    "bedrock-base": "latest",
+    "br-select-box": "latest",
+    "br-icons": "latest"
   }
 }
